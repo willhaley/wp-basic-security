@@ -21,6 +21,8 @@ if ( ! class_exists( 'WP_Basic_Security' ) ) {
 
             add_filter( 'login_errors',             array( $this, 'login_errors' ) );
             add_filter( "gform_admin_pre_render",   array( $this, 'gform_admin_pre_render' ) );
+            add_filter( 'the_generator',            array( $this, 'the_generator' ) );
+
         }
 
         function login_errors(){
@@ -34,6 +36,10 @@ if ( ! class_exists( 'WP_Basic_Security' ) ) {
             $form['enableHoneypot'] = 1;
             return $form;
 
+        }
+
+        function the_generator(){
+            return '<!-- Built By The Fifth One -->';
         }
 
     }
